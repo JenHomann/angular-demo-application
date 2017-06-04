@@ -1,0 +1,10 @@
+<form novalidate [(ngModel)]="comment" name="comment">
+  <input type="text" [(ngModel)]="comment.username" placeholder="Name">
+  <textarea [(ngModel)]="comment.text" placeholder="Comment"></textarea>
+  <br>
+  <button ng-click="postComment()">Post Comment</button>
+  <!--<input type="submit" value="Post Comment">-->
+</form>
+<div *ngFor="let comment of comments">
+  <app-comment></app-comment>
+</div>

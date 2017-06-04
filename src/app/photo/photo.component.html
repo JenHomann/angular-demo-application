@@ -1,0 +1,11 @@
+<a class="thumb" href="{{ '#modal' + unsplashImageRef }}">
+  <img src="{{ thumbSrc }}">
+</a>
+
+<div id="{{'modal' + unsplashImageRef }}" class="overlay">
+  <div class="modal">
+   <img src="{{ fullSrc }}">
+    <a class="close" href="#">&times;</a>
+    <app-comments></app-comments>
+  </div>
+</div>

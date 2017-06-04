@@ -1,0 +1,12 @@
+form {
+  input[type="text"], textarea {
+    width: 99%;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+
+  input[type="submit"] {
+    float: right;
+    margin-bottom: 10px;
+  }
+}
