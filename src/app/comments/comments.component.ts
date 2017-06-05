@@ -10,6 +10,7 @@ import { CommentComponent } from '../comment/comment.component';
 export class CommentsComponent implements OnInit {
   comments = [];
   comment = new CommentComponent();
+  displayErrors = false;
 
   constructor() {
   }
@@ -18,6 +19,8 @@ export class CommentsComponent implements OnInit {
   }
   createComment(form) {
     const comment = new CommentComponent();
+    const text = form.elements['comment-text'].value;
+    const username = form.elements['comment-username'].value;
     comment.text = form.elements['comment-text'].value;
     comment.username = form.elements['comment-username'].value;
     if (comment.mockAjaxCall()) {
@@ -26,7 +29,12 @@ export class CommentsComponent implements OnInit {
   }
   postComment() {
     const form = (<HTMLInputElement>event.target).form;
-    this.comments.push(this.createComment(form));
-    form.reset();
+    if (form.checkValidity()) {
+      this.comments.push(this.createComment(form));
+      this.displayErrors = false;
+      form.reset();
+    } else {
+      this.displayErrors = true;
+    }
   }
 }

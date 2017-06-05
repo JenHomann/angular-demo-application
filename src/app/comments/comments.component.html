@@ -1,6 +1,8 @@
 <form novalidate [(ngModel)]="comment" name="comment">
-  <input class="comment-username" type="text" [(ngModel)]="comment.username" name="comment-username" placeholder="Name">
-  <textarea class="comment-text" [(ngModel)]="comment.text" name="comment-text" placeholder="Comment"></textarea>
+  <h5 class="warning" *ngIf="displayErrors">Username is required.</h5>
+  <input class="comment-username" type="text" [(ngModel)]="comment.username" name="comment-username" placeholder="Name" required>
+  <h5 class="warning" *ngIf="displayErrors">Comment text is required.</h5>
+  <textarea class="comment-text" [(ngModel)]="comment.text" name="comment-text" placeholder="Comment" required></textarea>
   <br>
   <button (click)="postComment()">Post Comment</button>
 </form>
